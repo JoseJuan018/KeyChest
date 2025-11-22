@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - KeyChest</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .contenedor-principal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        .contenedor-login {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .titulo-login {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .formulario-login {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .boton-login {
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        
+        .texto-info-login {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #71717a;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+ <!-- Navegación Principal -->
+    <nav class="barra-navegacion" role="navigation" aria-label="Navegación principal">
+        <div class="contenedor contenido-nav">
+            <a href="index.html" class="logo-nav" aria-label="Ir a la página de inicio de KeyChest">
+                <img src="logo.jpg" alt="Logo de KeyChest">
+                <span>KeyChest</span>
+            </a>
+
+            <div class="enlaces-nav">
+                <a href="index.html" class="enlace-nav" aria-current="page">Inicio</a>
+                <a href="tienda.html" class="enlace-nav">Tienda</a>
+                <a href="contacto.html" class="enlace-nav">Contacto</a>
+            </div>
+
+            <div id="seccion-auth"></div>
+        </div>
+    </nav>
+
+
+    <main class="contenedor contenedor-principal">
+        <div class="contenido-modal contenedor-login">
+            <h1 class="titulo-login">Bienvenido</h1>
+
+            <form onsubmit="manejarLoginSimple(event)" class="formulario-login">
+                <div class="formulario-group">
+                    <label for="login-user" class="formulario-label">Usuario</label>
+                    <input type="text" id="login-user" class="formulario-input" placeholder="Tu nombre de usuario" required>
+                </div>
+
+                <button type="submit" class="boton boton-primario boton-completo boton-login">
+                    Entrar
+                </button>
+            </form>
+
+            <p class="texto-info-login">
+                Esta es una versión de prueba. No se requiere contraseña.
+            </p>
+        </div>
+    </main>
+
+    <footer class="pie-pagina" role="contentinfo">
+        <div class="fondo-pie">
+            © 2025 KeyChest. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="KeyChest - Descubre tu próximo juego favorito. Abre cofres épicos y consigue claves de juegos AAA, indie gems y contenido exclusivo.">
+    <title>KeyChest - Inicio</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .contenedor-principal {
+            padding-bottom: 5rem;
+        }
+        
+        .icono-display {
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .icono-estadistica-users {
+            color: #60a5fa;
+        }
+        
+        .icono-estadistica-box {
+            color: #c084fc;
+        }
+        
+        .icono-estadistica-trending {
+            color: #4ade80;
+        }
+        
+        .caracteristica-icono-1 {
+            background: rgba(59, 130, 246, 0.2);
+            box-shadow: 0 0 20px rgba(59,130,246,0.2);
+        }
+        
+        .caracteristica-icono-2 {
+            background: rgba(168, 85, 247, 0.2);
+            box-shadow: 0 0 20px rgba(168,85,247,0.2);
+        }
+        
+        .caracteristica-icono-3 {
+            background: rgba(236, 72, 153, 0.2);
+            box-shadow: 0 0 20px rgba(236,72,153,0.2);
+        }
+        
+        .icono-zap {
+            width: 1.75rem;
+            height: 1.75rem;
+            color: #60a5fa;
+        }
+        
+        .icono-shield {
+            width: 1.75rem;
+            height: 1.75rem;
+            color: #c084fc;
+        }
+        
+        .icono-gift {
+            width: 1.75rem;
+            height: 1.75rem;
+            color: #f472b6;
+        }
+        
+        .seccion-cofres-populares {
+            margin-bottom: 8rem;
+        }
+        
+        .header-populares {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .titulo-populares {
+            font-size: 1.875rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .icono-fire {
+            color: #f97316;
+            fill: #f97316;
+        }
+        
+        .icono-sparkles {
+            width: 1rem;
+            height: 1rem;
+            color: #facc15;
+        }
+        
+        .icono-lock {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        .icono-info {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        .logo-footer {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .logo-footer:hover {
+            filter: grayscale(0);
+        }
+        
+        .icono-social-facebook {
+            width: 1rem;
+            height: 1rem;
+            color: #60a5fa;
+        }
+        
+        .icono-social-twitter {
+            width: 1rem;
+            height: 1rem;
+            color: #38bdf8;
+        }
+        
+        .icono-social-instagram {
+            width: 1rem;
+            height: 1rem;
+            color: #f472b6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navegación Principal -->
+    <nav class="barra-navegacion" role="navigation" aria-label="Navegación principal">
+        <div class="contenedor contenido-nav">
+            <a href="index.html" class="logo-nav" aria-label="Ir a la página de inicio de KeyChest">
+                <img src="logo.jpg" alt="Logo de KeyChest">
+                <span>KeyChest</span>
+            </a>
+
+            <div class="enlaces-nav">
+                <a href="index.html" class="enlace-nav activo" aria-current="page">Inicio</a>
+                <a href="tienda.html" class="enlace-nav">Tienda</a>
+                <a href="contacto.html" class="enlace-nav">Contacto</a>
+            </div>
+
+            <div id="seccion-auth"></div>
+        </div>
+    </nav>
+
+    <!-- Sección contenido -->
+    <section class="contenido" aria-labelledby="titulo-contenido">
+        <div class="video-fondo-contenido">
+            <video autoplay loop muted playsinline aria-hidden="true">
+                <source src="Video_de_Cofre.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+
+        <div class="superposicion-contenido" aria-hidden="true"></div>
+
+        <div class="contenido-contenido caja-revelada">
+            <div class="insignia animar-rebote-lento">
+                <i data-lucide="sparkles" class="icono-sparkles" aria-hidden="true"></i>
+                <span>Las mejores claves de juegos están aquí</span>
+            </div>
+
+            <h1 id="titulo-contenido" class="titulo-contenido">
+                Descubre Tu Próximo<br>
+                <span class="gradiente-texto animar-pulso">Juego Favorito</span>
+            </h1>
+
+            <p class="descripcion-contenido">
+                Abre cofres épicos y consigue claves de juegos AAA, indie gems, y
+                contenido exclusivo. Cada cofre es una nueva aventura.
+            </p>
+
+            <div class="grupo-botones">
+                <a href="tienda.html" class="boton boton-primario">
+                    <i data-lucide="lock" class="icono-lock" aria-hidden="true"></i> Explorar Cofres
+                </a>
+                <a href="contacto.html" class="boton boton-secundario">
+                    <i data-lucide="info" class="icono-info" aria-hidden="true"></i> Más información
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="contenedor contenedor-principal">
+
+        <section class="cuadricula cuadricula-col-3 seccion-estadisticas" aria-label="Estadísticas de la plataforma">
+            <div class="tarjeta-estadistica caja-revelada retraso-100">
+                <div class="icono-display">
+                    <i data-lucide="users" class="icono-estadistica icono-estadistica-users" aria-hidden="true"></i>
+                </div>
+                <div class="valor-estadistica">50K+</div>
+                <div class="etiqueta-estadistica">Usuarios Activos</div>
+            </div>
+
+            <div class="tarjeta-estadistica caja-revelada retraso-200">
+                <div class="icono-display">
+                    <i data-lucide="box" class="icono-estadistica icono-estadistica-box" aria-hidden="true"></i>
+                </div>
+                <div class="valor-estadistica">1M+</div>
+                <div class="etiqueta-estadistica">Cofres Abiertos</div>
+            </div>
+
+            <div class="tarjeta-estadistica caja-revelada retraso-300">
+                <div class="icono-display">
+                    <i data-lucide="trending-up" class="icono-estadistica icono-estadistica-trending" aria-hidden="true"></i>
+                </div>
+                <div class="valor-estadistica">95%</div>
+                <div class="etiqueta-estadistica">Satisfacción</div>
+            </div>
+        </section>
+
+        <section class="cuadricula cuadricula-col-3 seccion-caracteristicas" aria-label="Características principales">
+            <article class="tarjeta-caracteristica caracteristica-azul caja-revelada retraso-100">
+                <div class="caja-icono-caracteristica caracteristica-icono-1">
+                    <i data-lucide="zap" class="icono-zap" aria-hidden="true"></i>
+                </div>
+                <h2 class="titulo-caracteristica">Entrega Instantánea</h2>
+                <p class="texto-caracteristica">Recibe tus claves al instante después de abrir el cofre. Sin esperas, directo a
+                    tu inventario.</p>
+            </article>
+
+            <article class="tarjeta-caracteristica caracteristica-morada caja-revelada retraso-200">
+                <div class="caja-icono-caracteristica caracteristica-icono-2">
+                    <i data-lucide="shield" class="icono-shield" aria-hidden="true"></i>
+                </div>
+                <h2 class="titulo-caracteristica">100% Seguro</h2>
+                <p class="texto-caracteristica">Sistema verificado y garantizado. Tus datos y transacciones están protegidos con
+                    encriptación.</p>
+            </article>
+
+            <article class="tarjeta-caracteristica caracteristica-rosa caja-revelada retraso-300">
+                <div class="caja-icono-caracteristica caracteristica-icono-3">
+                    <i data-lucide="gift" class="icono-gift" aria-hidden="true"></i>
+                </div>
+                <h2 class="titulo-caracteristica">Mejores Ofertas</h2>
+                <p class="texto-caracteristica">El valor medio de los items siempre supera o iguala el precio en el mercado
+                    oficial.</p>
+            </article>
+        </section>
+
+        <!-- Cofres Populares -->
+        <section class="seccion-cofres-populares caja-revelada retraso-200" aria-labelledby="titulo-populares">
+            <div class="header-populares">
+                <h2 id="titulo-populares" class="titulo-populares">
+                    <i data-lucide="fire" class="icono-fire" aria-hidden="true"></i> Más Populares
+                </h2>
+            </div>
+
+            <div id="rejilla-destacados-inicio" class="cuadricula cuadricula-col-3"></div>
+        </section>
+
+        <section class="seccion-llamada caja-revelada" aria-labelledby="titulo-llamada">
+            <div class="fondo-llamada" aria-hidden="true"></div>
+            <div class="superposicion-llamada" aria-hidden="true"></div>
+
+            <div class="contenido-llamada">
+                <h2 id="titulo-llamada" class="titulo-llamada">¿Listo para la aventura?</h2>
+                <p class="texto-llamada">
+                    Únete a miles de jugadores. Tu próximo juego favorito está a un clic de distancia.
+                </p>
+                <a href="tienda.html" class="boton boton-blanco">
+                    Explorar Todos los Cofres
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="pie-pagina" role="contentinfo">
+        <div class="contenedor">
+            <div class="cuadricula-pie">
+                <div>
+                    <div class="marca-pie">
+                        <img src="logo.jpg" alt="" class="logo-footer" aria-hidden="true">
+                        <span>KeyChest</span>
+                    </div>
+                    <p class="texto-pie">La plataforma líder en discovery gaming. Transparencia, seguridad y diversión
+                        garantizada.</p>
+                </div>
+                <nav aria-label="Enlaces del sitio" class="enlaces-pie">
+                    <h3 class="titulo-pie">Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Soporte" class="enlaces-pie">
+                    <h3 class="titulo-pie">Soporte</h3>
+                    <ul>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <h3 class="titulo-pie">Síguenos</h3>
+                    <div class="enlaces-sociales">
+                        <a href="#" class="boton-social" aria-label="Visitar Facebook">
+                            <i data-lucide="facebook" class="icono-social-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="boton-social" aria-label="Visitar Twitter">
+                            <i data-lucide="twitter" class="icono-social-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="boton-social" aria-label="Visitar Instagram">
+                            <i data-lucide="instagram" class="icono-social-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="fondo-pie">
+                © 2025 KeyChest. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Cofres - KeyChest</title>
+    <meta name="description"
+        content="Explora nuestra tienda de cofres con claves de juegos premium. Desde cofres novatos hasta legendarios con los mejores juegos AAA.">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .contenedor-principal {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            flex-grow: 1;
+        }
+        
+        .logo-footer {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .logo-footer:hover {
+            filter: grayscale(0);
+        }
+        
+        .label-oculto {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        .contenedor-cargando {
+            grid-column: span 3;
+            text-align: center;
+            padding: 2.5rem;
+            color: white;
+        }
+        
+        .modal-maximo {
+            max-width: 48rem;
+            text-align: center;
+        }
+        
+        .icono-cerrar {
+            width: 2rem;
+            height: 2rem;
+        }
+        
+        .img-modal-cofre {
+            width: 16rem;
+            height: 16rem;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin-bottom: 2rem;
+        }
+        
+        .titulo-modal-apertura {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .fase-centrada {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .fase-completa {
+            width: 100%;
+        }
+        
+        .contenedor-ruleta {
+            position: relative;
+            width: 100%;
+            height: 16rem;
+            background: rgba(24, 24, 27, 0.8);
+            border-top: 1px solid var(--color-borde);
+            border-bottom: 1px solid var(--color-borde);
+            overflow: hidden;
+        }
+        
+        .indicador-ruleta {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #facc15;
+            z-index: 30;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px #facc15;
+        }
+        
+        .pista-ruleta {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            padding-left: 50%;
+        }
+        
+        .icono-sparkles-grande {
+            width: 5rem;
+            height: 5rem;
+            color: #facc15;
+            margin: 0 auto 1.5rem auto;
+        }
+        
+        .titulo-ganador {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .tarjeta-premio {
+            background: #18181b;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--color-borde);
+            display: inline-block;
+        }
+        
+        .img-recompensa {
+            width: 100%;
+            height: 12rem;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .nombre-recompensa {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .valor-recompensa {
+            color: #4ade80;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .contenedor-rareza {
+            margin-top: 0.5rem;
+        }
+        
+        .contenedor-clave {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+        }
+        
+        .texto-clave-label {
+            color: var(--color-texto-apagado);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .texto-clave-valor {
+            font-family: monospace;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.1em;
+        }
+        
+        .contenedor-boton-reclamar {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+    <!-- Cuerpo tienda -->
+<body>
+
+    <nav class="barra-navegacion" role="navigation" aria-label="Navegación principal">
+        <div class="contenedor contenido-nav">
+            <a href="index.html" class="logo-nav" aria-label="Ir a la página de inicio de KeyChest">
+                <img src="logo.jpg" alt="Logo de KeyChest">
+                <span>KeyChest</span>
+            </a>
+
+            <div class="enlaces-nav">
+                <a href="index.html" class="enlace-nav">Inicio</a>
+                <a href="tienda.html" class="enlace-nav activo" aria-current="page">Tienda</a>
+                <a href="contacto.html" class="enlace-nav">Contacto</a>
+            </div>
+
+            <div id="seccion-auth"></div>
+        </div>
+    </nav>
+
+    <main class="contenedor contenedor-principal">
+
+        <header class="cabecera-pagina">
+            <h1 class="titulo-pagina">
+                Tienda de Cofres
+            </h1>
+            <p class="descripcion-pagina">
+                Explora nuestra colección exclusiva. Cada cofre contiene una oportunidad única de conseguir juegos
+                increíbles.
+            </p>
+        </header>
+
+        <div class="caja-busqueda">
+            <div class="envoltorio-busqueda">
+                <i data-lucide="search" class="icono-busqueda" aria-hidden="true"></i>
+                <label for="input-busqueda" class="label-oculto">Buscar cofres por nombre</label>
+                <input type="search" id="input-busqueda" placeholder="Buscar cofres..." class="entrada-busqueda"
+                    aria-label="Campo de búsqueda de cofres">
+            </div>
+        </div>
+
+        <!-- Cofres -->
+        <section id="rejilla-cofres" class="cuadricula cuadricula-col-3" aria-label="Lista de cofres disponibles">
+            <div class="contenedor-cargando">Cargando cofres...</div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pie-pagina" role="contentinfo">
+        <div class="contenedor">
+            <div class="cuadricula-pie">
+                <div>
+                    <div class="marca-pie">
+                        <img src="logo.jpg" alt="" class="logo-footer" aria-hidden="true">
+                        <span>KeyChest</span>
+                    </div>
+                    <p class="texto-pie">
+                        La plataforma líder en discovery gaming. Transparencia, seguridad y diversión garantizada.
+                    </p>
+                </div>
+                <nav aria-label="Enlaces del sitio" class="enlaces-pie">
+                    <h3 class="titulo-pie">Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <nav aria-label="Soporte" class="enlaces-pie">
+                    <h3 class="titulo-pie">Soporte</h3>
+                    <ul>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <h3 class="titulo-pie">Síguenos</h3>
+                    <div class="enlaces-sociales">
+                        <a href="#" class="boton-social" aria-label="Visitar nuestra página de Facebook">
+                            <i data-lucide="facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="boton-social" aria-label="Visitar nuestra cuenta de Twitter">
+                            <i data-lucide="twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="boton-social" aria-label="Visitar nuestro perfil de Instagram">
+                            <i data-lucide="instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="fondo-pie">
+                © 2025 KeyChest. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Funcion de apertura de cofre -->
+    <div id="modal-apertura" class="superposicion-modal" role="dialog" aria-modal="true"
+        aria-labelledby="titulo-modal-apertura">
+        <div class="contenido-modal modal-maximo">
+            <button onclick="cerrarModal()" class="cerrar-modal" aria-label="Cerrar modal de apertura">
+                <i data-lucide="x" class="icono-cerrar" aria-hidden="true"></i>
+            </button>
+
+            <div id="fase-1" class="oculto fase-centrada">
+                <img id="img-modal" src="" alt="Cofre" class="img-modal-cofre">
+                <h2 id="titulo-modal-apertura" class="titulo-modal-apertura">Abriendo cofre...</h2>
+            </div>
+
+            <div id="fase-2" class="oculto fase-completa">
+                <h2 class="label-oculto">Seleccionando premio</h2>
+                <div class="contenedor-ruleta" role="img" aria-label="Animación de ruleta">
+                    <div class="indicador-ruleta" aria-hidden="true"></div>
+                    <div id="pista-ruleta" class="pista-ruleta"></div>
+                </div>
+            </div>
+
+            <div id="fase-3" class="oculto">
+                <i data-lucide="sparkles" class="icono-sparkles-grande" aria-hidden="true"></i>
+                <h2 class="titulo-ganador">¡HAS GANADO!</h2>
+                <div class="tarjeta-premio">
+                    <img id="img-recompensa" src="" alt="Juego ganado" class="img-recompensa">
+                    <h3 id="nombre-recompensa" class="nombre-recompensa">Nombre</h3>
+                    <p id="valor-recompensa" class="valor-recompensa">$0.00</p>
+                    <div class="contenedor-rareza"><span id="insignia-rareza" class="insignia-rareza"></span></div>
+                    <div class="contenedor-clave">
+                        <p class="texto-clave-label">Clave de activación:</p>
+                        <p id="clave-activacion" class="texto-clave-valor">XXXX-XXXX-XXXX-XXXX</p>
+                    </div>
+                </div>
+                <div class="contenedor-boton-reclamar">
+                    <button onclick="cerrarModal()" class="boton boton-blanco">Reclamar Premio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

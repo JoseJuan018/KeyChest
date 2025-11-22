@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - KeyChest</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        .contenedor-principal {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            flex-grow: 1;
+        }
+        
+        .header-contacto {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .titulo-contacto {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitulo-contacto {
+            color: var(--color-texto-apagado);
+            font-size: 1.25rem;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+        
+        .icono-mail {
+            width: 2rem;
+            height: 2rem;
+            color: #c084fc;
+        }
+        
+        .contenedor-formulario {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .formulario-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .fila-formulario {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .textarea-mensaje {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .boton-enviar {
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .icono-send {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        .cuadricula-contacto {
+            gap: 2rem;
+        }
+        
+        .tarjeta-contacto {
+            background: rgba(24, 24, 27, 0.4);
+            border: 1px solid var(--color-borde);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .icono-contacto-contenedor {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 1rem;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+        
+        .icono-contacto {
+            width: 2rem;
+            height: 2rem;
+            color: #c084fc;
+        }
+        
+        .titulo-tarjeta-contacto {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .texto-tarjeta-contacto {
+            color: var(--color-texto-apagado);
+        }
+    </style>
+</head>
+
+ <!-- Contenido de la página de contacto -->
+<body>
+    <nav class="barra-navegacion" role="navigation" aria-label="Navegación principal">
+        <div class="contenedor contenido-nav">
+            <a href="index.html" class="logo-nav" aria-label="Ir a la página de inicio de KeyChest">
+                <img src="logo.jpg" alt="Logo de KeyChest">
+                <span>KeyChest</span>
+            </a>
+
+            <div class="enlaces-nav">
+                <a href="index.html" class="enlace-nav">Inicio</a>
+                <a href="tienda.html" class="enlace-nav">Tienda</a>
+                <a href="contacto.html" class="enlace-nav activo">Contacto</a>
+            </div>
+
+            <div id="seccion-auth"></div>
+        </div>
+    </nav>
+
+    <main class="contenedor contenedor-principal">
+
+        <header class="cabecera-preguntas header-contacto">
+            <div class="icono-preguntas">
+                <i data-lucide="mail" class="icono-mail"></i>
+            </div>
+            <h1 class="titulo-contacto">
+                Contáctanos
+            </h1>
+            <p class="subtitulo-contacto">
+                ¿Tienes alguna duda o problema? Estamos aquí para ayudarte. Rellena el formulario y te responderemos lo
+                antes posible.
+            </p>
+        </header>
+
+        <div class="contenido-modal contenedor-formulario">
+            <form id="formulario-contacto" class="formulario-contacto">
+                <div class="fila-formulario">
+                    <div class="formulario-group">
+                        <label for="nombre" class="formulario-label">Nombre</label>
+                        <input type="text" id="nombre" class="formulario-input" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="formulario-group">
+                        <label for="email" class="formulario-label">Email</label>
+                        <input type="email" id="email" class="formulario-input" placeholder="tu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="formulario-group">
+                    <label for="asunto" class="formulario-label">Asunto</label>
+                    <input type="text" id="asunto" class="formulario-input" placeholder="¿En qué podemos ayudarte?" required>
+                </div>
+
+                <div class="formulario-group">
+                    <label for="mensaje" class="formulario-label">Mensaje</label>
+                    <textarea id="mensaje" class="formulario-input textarea-mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <button type="submit" class="boton boton-primario boton-completo boton-enviar">
+                    <i data-lucide="send" class="icono-send"></i>
+                    Enviar Mensaje
+                </button>
+            </form>
+        </div>
+        
+        <!-- Otras formas de contacto -->
+
+        <div class="cuadricula cuadricula-col-3 cuadricula-contacto">
+            <div class="tarjeta-contacto">
+                <div class="icono-contacto-contenedor">
+                    <i data-lucide="mail" class="icono-contacto"></i>
+                </div>
+                <h3 class="titulo-tarjeta-contacto">Email</h3>
+                <p class="texto-tarjeta-contacto">soporte@keychest.com</p>
+            </div>
+            
+            <div class="tarjeta-contacto">
+                <div class="icono-contacto-contenedor">
+                    <i data-lucide="message-circle" class="icono-contacto"></i>
+                </div>
+                <h3 class="titulo-tarjeta-contacto">Discord</h3>
+                <p class="texto-tarjeta-contacto">KeyChest Community</p>
+            </div>
+            
+            <div class="tarjeta-contacto">
+                <div class="icono-contacto-contenedor">
+                    <i data-lucide="twitter" class="icono-contacto"></i>
+                </div>
+                <h3 class="titulo-tarjeta-contacto">Twitter</h3>
+                <p class="texto-tarjeta-contacto">@KeyChestOfficial</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Pie de pagina-->
+    <footer class="pie-pagina" role="contentinfo">
+        <div class="fondo-pie">
+            © 2025 KeyChest. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        document.getElementById('formulario-contacto').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('¡Mensaje enviado! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
