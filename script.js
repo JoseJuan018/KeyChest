@@ -199,7 +199,8 @@ function iniciarInicio() {
     var destacados = COFRES.slice(2, 5);
     renderizarCofres(destacados, 'rejilla-destacados-inicio');
 }
-   //  RENDERIZADO DE COFRES
+
+//  RENDERIZADO DE COFRES
 function renderizarCofres(lista, idContenedor) {
     var contenedor = document.getElementById(idContenedor);
     if (!contenedor) return;
