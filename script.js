@@ -199,7 +199,7 @@ function iniciarInicio() {
     var destacados = COFRES.slice(2, 5);
     renderizarCofres(destacados, 'rejilla-destacados-inicio');
 }
-   //  RENDERIZADO DE COFRES
+    //  RENDERIZADO DE COFRES
 function renderizarCofres(lista, idContenedor) {
     var contenedor = document.getElementById(idContenedor);
     if (!contenedor) return;
@@ -227,13 +227,12 @@ function renderizarCofres(lista, idContenedor) {
 
         // Construir tarjeta completa
         htmlCofres +=
-            '<div class="tarjeta-cofre">' +
-            '<div class="contenedor-imagen-cofre">' +
-            '<img src="' + c.imagen + '">' +
-            '<div class="precio-cofre">' +
-            '€' + c.precio +
-            '</div>' +
-            '</div>' +  // ← ESTE ERA EL CIERRE QUE FALTABA
+             '<div class="tarjeta-cofre">' +
+             '<div class="contenedor-imagen-cofre">' +
+             '<img src="' + c.imagen + '">' +
+             '<div class="precio-cofre">' +
+             '€' + c.precio + 
+             '</div>' +
             '<div class="contenido-cofre">' +
             '<h3 class="titulo-cofre">' + c.nombre + '</h3>' +
             '<p class="descripcion-cofre">' + c.descripcion + '</p>' +
