@@ -254,10 +254,13 @@ function renderizarCofres(lista, idContenedor) {
 //  LÓGICA DE APERTURA Y RULETA
 
 function intentarAbrir(id) {
-    if (!usuarioActual) {
+    // 1. ELIMINAMOS EL BLOQUEO DE LOGIN
+    // Si no hay usuario, simplemente seguimos adelante sin cobrar
+    /* if (!usuarioActual) {
         window.location.href = 'login.html';
         return;
     }
+    */
 
     // Buscar cofre por ID
     var cofre = null;
@@ -268,27 +271,31 @@ function intentarAbrir(id) {
         }
     }
 
-    if (usuarioActual.saldo < cofre.precio) {
-        alert("Saldo insuficiente. Añade fondos haciendo clic en el botón de saldo.");
-        return;
+    // 2. SOLO COBRAR SI HAY USUARIO CONECTADO
+    if (usuarioActual) {
+        if (usuarioActual.saldo < cofre.precio) {
+            alert("Saldo insuficiente. Añade fondos haciendo clic en el botón de saldo.");
+            return;
+        }
+        // Descontar saldo y guardar solo si hay usuario
+        usuarioActual.saldo -= cofre.precio;
+        sessionStorage.setItem('kc_usuario', JSON.stringify(usuarioActual));
+        renderizarBarraNavegacion();
     }
 
-    // Descontar saldo
-    usuarioActual.saldo -= cofre.precio;
-    sessionStorage.setItem('kc_usuario', JSON.stringify(usuarioActual));
-    renderizarBarraNavegacion();
-
-    // Preparar funcion de apertura 
+    // 3. INICIAR ANIMACIÓN (Ahora se ejecuta siempre)
     var modal = document.getElementById('modal-apertura');
     modal.classList.remove('oculto');
     modal.classList.add('activo');
+    
+    // Resetear fases visuales
     document.getElementById('fase-1').classList.remove('oculto');
     document.getElementById('fase-2').classList.add('oculto');
     document.getElementById('fase-3').classList.add('oculto');
 
     document.getElementById('img-modal').src = cofre.imagen;
 
-    // Iniciar animacion  de la ruleta después de un breve retraso
+    // Iniciar animacion de la ruleta después de un breve retraso
     setTimeout(function () {
         iniciarRuleta(cofre);
     }, 500);
