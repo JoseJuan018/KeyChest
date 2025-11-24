@@ -329,6 +329,48 @@
         </div>
     </footer>
 
+
+    <!-- Funcion de apertura de cofre -->
+    <div id="modal-apertura" class="superposicion-modal" role="dialog" aria-modal="true"
+        aria-labelledby="titulo-modal-apertura">
+        <div class="contenido-modal modal-maximo">
+            <button onclick="cerrarModal()" class="cerrar-modal" aria-label="Cerrar modal de apertura">
+                <i data-lucide="x" class="icono-cerrar" aria-hidden="true"></i>
+            </button>
+
+            <div id="fase-1" class="oculto fase-centrada">
+                <img id="img-modal" src="" alt="Cofre" class="img-modal-cofre">
+                <h2 id="titulo-modal-apertura" class="titulo-modal-apertura">Abriendo cofre...</h2>
+            </div>
+
+            <div id="fase-2" class="oculto fase-completa">
+                <h2 class="label-oculto">Seleccionando premio</h2>
+                <div class="contenedor-ruleta" role="img" aria-label="Animación de ruleta">
+                    <div class="indicador-ruleta" aria-hidden="true"></div>
+                    <div id="pista-ruleta" class="pista-ruleta"></div>
+                </div>
+            </div>
+
+            <div id="fase-3" class="oculto">
+                <i data-lucide="sparkles" class="icono-sparkles-grande" aria-hidden="true"></i>
+                <h2 class="titulo-ganador">¡HAS GANADO!</h2>
+                <div class="tarjeta-premio">
+                    <img id="img-recompensa" src="" alt="Juego ganado" class="img-recompensa">
+                    <h3 id="nombre-recompensa" class="nombre-recompensa">Nombre</h3>
+                    <p id="valor-recompensa" class="valor-recompensa">$0.00</p>
+                    <div class="contenedor-rareza"><span id="insignia-rareza" class="insignia-rareza"></span></div>
+                    <div class="contenedor-clave">
+                        <p class="texto-clave-label">Clave de activación:</p>
+                        <p id="clave-activacion" class="texto-clave-valor">XXXX-XXXX-XXXX-XXXX</p>
+                    </div>
+                </div>
+                <div class="contenedor-boton-reclamar">
+                    <button onclick="cerrarModal()" class="boton boton-blanco">Reclamar Premio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 
